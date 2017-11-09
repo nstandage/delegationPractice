@@ -14,7 +14,7 @@ class ViewController: UIViewController, changeTextDelegate {
     @IBOutlet weak var textLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        textLabel.text = ""
+        textLabel.text = "Press Go to change my text."
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -23,8 +23,10 @@ class ViewController: UIViewController, changeTextDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    func changeTextTo(_ text: String) {
+    func changeTextTo(_ text: String, withNewColor: Bool = false) {
+        changeColor(withNewColor)
         textLabel.text = text
+
     }
 
     
@@ -39,6 +41,16 @@ class ViewController: UIViewController, changeTextDelegate {
             modalVC.delegate = self
             
         }
+    }
+    
+    func changeColor(_ newColor: Bool) {
+        
+        if newColor == true {
+            textLabel.textColor = UIColor.red
+        } else {
+            textLabel.textColor = UIColor.black
+        }
+        
     }
 
 }
